@@ -1,6 +1,7 @@
 package com.generation.blogpessoal.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -8,9 +9,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "tb_postagens")
-public class Postagem {
+    @Entity
+    @Table(name = "tb_postagens")
+    public class Postagem {
 
 
     @Id
@@ -28,6 +29,11 @@ public class Postagem {
 
     @UpdateTimestamp
     private LocalDateTime data;
+
+
+    @ManyToOne
+    @JsonIgnoreProperties("postagem")
+    private Tema tema;
 
     public long getId() {
         return id;
@@ -59,5 +65,13 @@ public class Postagem {
 
     public void setData(LocalDateTime data) {
         this.data = data;
+    }
+
+    public Tema getTema() {
+        return tema;
+    }
+
+    public void setTema(Tema tema) {
+        this.tema = tema;
     }
 }
