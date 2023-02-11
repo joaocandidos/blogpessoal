@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 
     @Entity
     @Table(name = "tb_postagens")
-    public class Postagem {
+    public class
+    Postagem {
 
 
     @Id
@@ -40,7 +41,15 @@ import java.time.LocalDateTime;
     @JsonIgnoreProperties("postagem")
     private  Usuario usuario;
 
-    public long getId() {
+        public Usuario getUsuario() {
+            return usuario;
+        }
+
+        public void setUsuario(Usuario usuario) {
+            this.usuario = usuario;
+        }
+
+        public long getId() {
         return id;
     }
 

@@ -25,7 +25,13 @@ public class Tema {
     private List<Postagem> postagem;
 
 
+    public List<Postagem> getPostagem() {
+        return postagem;
+    }
 
+    public void setPostagem(List<Postagem> postagem) {
+        this.postagem = postagem;
+    }
 
     public Long getId() {
         return id;
